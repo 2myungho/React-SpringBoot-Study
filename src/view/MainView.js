@@ -1,23 +1,27 @@
-import React from 'react';
-import { Card, Icon } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import MainItem from './MainItem'
 
-const description = [
-    'Amy is a violinist with 2 years experience in the wedding industry.',
-    'She enjoys the outdoors and currently resides in upstate New York.',
-].join(' ')
+class mainView extends Component {
+    render() {
+        const {
+            books,
+            onWriteRemove
+        } = this.props;
 
-const MainView = () => {
-    return (
-        <div>
-            <Card>
-                <Card.Content header='About Amy' />
-                <Card.Content description={description} />
-                <Card.Content extra>
-                    <Icon name='user' />4 Friends
-                </Card.Content>
-            </Card>
-        </div>
-    );
-};
+        const bookList = books.map((book,index) => (
+            <MainItem 
+                key={index}
+                book={book}
+                onWriteRemove={onWriteRemove}
+            />
+        ))
+        
+        return (
+            <div>
+                {bookList}
+            </div>
+        );
+    }
+}
 
-export default MainView;
+export default mainView;

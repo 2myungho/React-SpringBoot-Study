@@ -9,3 +9,5 @@ const Books = [
         content : "테스트입니다 2"
     },
 ]
+
+export default Books;

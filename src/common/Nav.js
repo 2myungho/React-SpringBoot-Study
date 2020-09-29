@@ -41,7 +41,7 @@ class Nav extends Component {
           name='write'
           active={activeItem === 'write'}
           onClick={this.handleItemClick}
-        />
+        ></Menu.Item>
         <Link to="/write">write</Link>
       </Menu>
     );

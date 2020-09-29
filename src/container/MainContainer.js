@@ -6,14 +6,20 @@ import {inject,observer} from "mobx-react"
 @inject("TestStore")
 @observer
 class MainContainer extends Component {
+
+    onWriteRemove = (id) => {
+        this.props.TestStore.writeRemove(id);
+    }
     
     render() {
-        const books = this.props.TestStore.book;
-        console.log(books)
+        const books = this.props.TestStore.books;
         return (
             <div>
                 <Nav />
-                <MainView />
+                <MainView 
+                    books={books} 
+                    onWriteRemove={this.onWriteRemove}
+                />
             </div>
         );
     }
